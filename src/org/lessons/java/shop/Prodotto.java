@@ -31,12 +31,12 @@ public class Prodotto {
 
     // metodi
     public BigDecimal GetPrezzo() {
-        return prezzo;
+        return prezzo.setScale(2, RoundingMode.DOWN);
     }
 
     public BigDecimal GetPrezzoConIva() {
         if (prezzo != null && iva != null) {
-            return prezzo.add(prezzo.multiply(iva)).setScale(2,RoundingMode.DOWN);
+            return prezzo.add(prezzo.multiply(iva)).setScale(2, RoundingMode.DOWN);
         }
         return null;
     }
