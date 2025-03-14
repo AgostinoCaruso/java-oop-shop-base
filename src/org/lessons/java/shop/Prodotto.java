@@ -13,7 +13,23 @@ import java.util.Random;
 public class Prodotto {
     Random r = new Random();
 
+    // campi
+    private int codice;
+    private String nome;
+    private String descrizione;
+    private BigDecimal prezzo;
+    private BigDecimal iva;
+
     // costruttore
+    //costruttore overload senza parametri
+    public Prodotto(){
+        this.codice = r.nextInt(0, 99999);
+        this.nome = "non definito";
+        this.descrizione = "nessuna rensione";
+        this.prezzo = null;
+        this.iva = null;
+    }
+
     public Prodotto(String nome, String descrizione, BigDecimal prezzo, BigDecimal iva) {
         this.codice = r.nextInt(0, 99999);
         this.nome = nome;
@@ -22,13 +38,38 @@ public class Prodotto {
         this.iva = iva;
     }
 
-    // campi
-    int codice;
-    String nome;
-    String descrizione;
-    BigDecimal prezzo;
-    BigDecimal iva;
+    //getter&setter
+    public int getCodice(){
+        return codice;
+    }
 
+    public String getNome(){
+        return nome;
+    }
+    public void setNome(String nome){
+        this.nome = nome;
+    }    
+
+    public String getDescrizione(){
+        return descrizione;
+    }
+    public void setDescrizione(String descrizione){
+        this.descrizione = descrizione;
+    }
+    
+    public BigDecimal getPrezzo(){
+        return prezzo;
+    }
+    public void setPrezzo(double prezzo){
+        this.prezzo = BigDecimal.valueOf(prezzo);
+    }
+
+    public BigDecimal getIva(){
+        return iva;
+    }
+    public void setIva(BigDecimal iva){
+        this.iva = iva;
+    }
     // metodi
     public BigDecimal GetPrezzo() {
         return prezzo.setScale(2, RoundingMode.DOWN);
